@@ -1,8 +1,10 @@
-function toggleSidebar(){
-    const sidebar = document.querySelector('.sidebar');
-    sidebar.style.display = 'flex'
+function showslidbar(){
+    const slidbar = document.querySelector('.sidebar');
+slidbar.style.display='flex'
+    
 }
-function closesidebar(){
-     const sidebar = document.querySelector('.sidebar');
-    sidebar.style.display = 'none'
+function hideslidbar(){
+    const slidbar = document.querySelector('.sidebar');
+slidbar.style.display='none'
+    
 }

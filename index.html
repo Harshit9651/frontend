@@ -3,30 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
     <link rel="stylesheet" href="/index.css">
-    <title>Learn basic </title>
 </head>
 <body>
-    <nav>
-        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-        
-        <!-- Sidebar Navigation -->
-        <ul class="sidebar">
-            <li onclick="closesidebar()"><a  href="#">HAPP</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-<ul>
-    <li class="hideOneMobile"><a href="#">harshit</a></li>
-    <li  class="hideOneMobile"><a href="#">blog </a></li> 
-     <li  class="hideOneMobile"><a href="#">products</a></li> 
-      <li  class="hideOneMobile"><a href="#">about</a></li>
-      <li  class="hideOneMobile"><a href="#">Contect</a></li>
-</ul>
+<nav>
 
-    </nav>
-    <script src="/index.js"></script>
+    
+        <ul class="sidebar">
+        
+       <li onclick="hideslidbar()"><i class="fa-solid fa-xmark cros"></i></li>
+            
+            <li><a href="#">Home</a></li>
+            
+            <li><a href="#">contect</a></li>
+            
+            <li><a href="#">Blog</a></li>
+            
+            <li><a href="#">about me </a></li>
+            
+            <li><a href="#">see up</a></li>
+        
+        
+        </ul>
+    
+       
+
+
+
+    <ul>
+    
+        <li ><a href="#">Harshit</a></li>
+        
+        <li class="hideonmobile"><a href="#">Home</a></li>
+        
+        <li class="hideonmobile"><a href="#">contect</a></li>
+        
+        <li class="hideonmobile"><a href="#">Blog</a></li>
+        
+        <li class="hideonmobile"><a href="#">about me </a></li>
+        
+        <li class="hideonmobile"><a href="#">see up</a></li>
+        <li class="showonmobile" onclick="showslidbar()"><a href="#"><i class="fa-solid fa-bars-staggered"></i></a></li>
+    
+    
+    </ul>
+</nav>
+<script src="/index.js"></script>
 </body>
 </html>
