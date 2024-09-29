@@ -22,25 +22,67 @@
 
         <div class="right">
             <div class="output-setting">
-                <h3>Output Setting</h3>
+                <h3 id="min-heading">Output Setting</h3>
                 <hr class="solid-line">
-                <label for="text-input">Text Input</label>
+                <label class="test-input" for="text-input">Text Input</label>
                 <input type="text" id="text-input" class="input-field" placeholder="Enter your text...">
                 <label for="choose-style">Choose Style</label>
                 <div class="image-carousel">
-                    <i class="fa-solid fa-chevron-left scroll-icon left"></i>
                     <div class="image-cards">
-                        <img src="https://via.placeholder.com/100" alt="Style 1">
-                        <img src="https://via.placeholder.com/100" alt="Style 2">
-                        <img src="https://via.placeholder.com/100" alt="Style 3">
-                        <img src="https://via.placeholder.com/100" alt="Style 4">
+                        <div class="image-card" data-label="Bedroom">
+                            <img  src="https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Style 1">
+                            <div class="label">Bedroom</div>
+                            <div class="overlay"><div class="outer-circle"><i class="fa-solid fa-check"></i></div></div>
+                        </div>
+                        <div class="image-card" data-label="Kitchen">
+                            <img   src="https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Style 2">
+                            <div class="label">Kitchen</div>
+                            <div class="overlay"><div class="outer-circle"><i class="fa-solid fa-check"></i></div></div>
+                        </div>
+                        <div class="image-card" data-label="Bathroom">
+                            <img  src="https://images.pexels.com/photos/1910472/pexels-photo-1910472.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Style 3">
+                            <div class="label">Bathroom</div>
+                            <div class="overlay"><div class="outer-circle"><i class="fa-solid fa-check"></i></div></div>
+                        </div>
+
+                        <div class="image-card" data-label="Bathroom">
+                            <img  src="  https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Style 3">
+                            <div class="label">Ocian</div>
+                            <div class="overlay"><div class="outer-circle"><i class="fa-solid fa-check"></i></div></div>
+                        </div>
+
+                        <div class="image-card" data-label="Bathroom">
+                            <img  src="https://images.pexels.com/photos/90317/pexels-photo-90317.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Style 3">
+                            <div class="label">minimal</div>
+                            <div class="overlay"><div class="outer-circle"><i class="fa-solid fa-check"></i></div></div>
+                        </div>
+
+                        <div class="image-card" data-label="Bathroom">
+                            <img  src="https://images.pexels.com/photos/1034584/pexels-photo-1034584.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Style 3">
+                            <div class="label">luxirous</div>
+                            <div class="overlay"><div class="outer-circle"><i class="fa-solid fa-check"></i></div></div>
+                        </div>
+
+                        <div class="image-card" data-label="Bathroom">
+                            <img  src="https://images.pexels.com/photos/237371/pexels-photo-237371.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Style 3">
+                            <div class="label">asthtic</div>
+                            <div class="overlay"><div class="outer-circle"><i class="fa-solid fa-check"></i></div></div>
+                        </div>
+
+                        <div class="image-card" data-label="Bathroom">
+                            <img  src="https://images.pexels.com/photos/1910472/pexels-photo-1910472.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Style 3">
+                            <div class="label">Bathroom</div>
+                            <div class="overlay"><div class="outer-circle"><i class="fa-solid fa-check"></i></div></div>
+                        </div>
+                        <!-- Add more cards here as needed -->
                     </div>
-                    <i class="fa-solid fa-chevron-right scroll-icon right"></i>
                 </div>
+              
                 <button class="generate-btn">Generate</button>
             </div>
         </div>
     </div>
 </div>
+<script src="/index3.js"></script>
 </body>
 </html>
