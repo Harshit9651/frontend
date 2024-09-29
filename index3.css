@@ -6,6 +6,12 @@
 body{
     background-color: rgb(228, 231, 235);
 }
+.heading{
+    margin-top: 2rem;
+    margin-right:55%;
+    display: flex;
+    justify-content: center;
+}
 .container{
     display: flex;
     justify-content: center;
@@ -100,18 +106,19 @@ body{
 }
 .test-input{
    color: #100724;  
-   font-weight: 600;
-   font-size: 16px;
-   margin-top: 25px;  /* Adjust the top space */
+   font-weight: bold;
+   font-size: large;
+   margin-top: 25px;  
     margin-bottom: 10px;
     display: block; 
 
 }
 .chose-style{
     color: #100724;  
-   font-weight: 600;
-   font-size: 16px;
-   margin-top: 25px;  /* Adjust the top space */
+   font-weight: bold;
+   font-size: large;
+
+   margin-top: 25px;
     margin-bottom: 5px;
     display: block; 
 }
@@ -240,4 +247,51 @@ body{
 .generate-btn:hover {
     background: linear-gradient(277.64deg, #3379fa 8.32%, #F53F9E 51.79%, #c56229 96.13%);
    
+}
+
+@media (max-width: 1024px) {
+    .main-container {
+        width: 90%;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .left, .right {
+        width: 100%;
+        height: auto;
+    }
+
+    .generate-btn {
+        margin-top: 2rem;
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 768px) {
+    .container {
+        height: auto;
+    }
+
+    .main-container {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .left {
+        width: 100%;
+    }
+
+    .right {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .input-field {
+        width: 100%;
+    }
+
+    .generate-btn {
+        width: 100%;
+        margin-top: 20px;
+    }
 }
