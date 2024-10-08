@@ -1,0 +1,69 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Rotating Coin</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+            overflow: hidden; /* Prevent scrollbars if the animation goes beyond the view */
+        }
+
+        .coin-container {
+            perspective: 1000px; /* Add perspective for 3D effect */
+            position: relative; /* Relative to position child element */
+            width: 100%; /* Full width of the screen */
+            height: 100%; /* Full height of the screen */
+        }
+
+        .image {
+            height: 100px;
+            width: 100px;
+            position: absolute; /* Absolute positioning to move freely */
+            left: 0; /* Start from left */
+            top: 0; /* Start from top */
+            animation: moveAndRotate 5s ease forwards, spin 5s 5s linear;
+        }
+
+     
+        @keyframes moveAndRotate {
+            0% {
+                left: 0;
+                top: 0;
+                transform: rotateX(0deg) rotateY(0deg); /* Start with no rotation */
+            }
+            50% {
+                left: 50%;
+                top: 50%;
+                transform: rotateX(180deg) rotateY(180deg); /* Halfway with 180 degrees rotation */
+            }
+            100% {
+                left: calc(100% - 100px); /* 100% minus the width of the image */
+                top: calc(100% - 100px); /* 100% minus the height of the image */
+                transform: rotateX(360deg) rotateY(360deg); /* Full 360-degree rotation */
+            }
+        }
+
+        /* Keyframes for constant spinning on Z-axis */
+        @keyframes spin {
+            0% {
+                transform: rotateZ(0deg);
+            }
+            100% {
+                transform: rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="coin-container">
+        <img class="image" src="/png-clipart-coins-coins.png" alt="Rotating Coin">
+    </div>
+</body>
+</html> -->
