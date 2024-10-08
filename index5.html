@@ -1,67 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3D Rotating Coin</title>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #ffffff;
-            overflow: hidden;
-        }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #ffffff;
+        overflow: hidden;
+      }
 
-        .coin-container {
-            perspective: 1000px;
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
+      .coin-container {
+        perspective: 1000px;
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
 
-        .image {
-            height: 100px;
-            width: 100px;
-            position: absolute;
-            left: 0;
-            top: 0;
-            animation: moveAndRotate 5s ease forwards, spin 5s 5s linear;
-        }
+      .image {
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        animation: moveAndRotate 5s ease forwards, spin 5s 5s linear;
+      }
 
-        @keyframes moveAndRotate {
-            0% {
-                left: 0;
-                top: 0;
-                transform: rotateX(0deg) rotateY(0deg);
-            }
-            50% {
-                left: 50%;
-                top: 50%;
-                transform: rotateX(180deg) rotateY(180deg);
-            }
-            100% {
-                left: calc(100% - 100px);
-                top: calc(100% - 100px);
-                transform: rotateX(360deg) rotateY(360deg);
-            }
+      @keyframes moveAndRotate {
+        0% {
+          left: 0;
+          top: 0;
+          transform: rotateX(0deg) rotateY(0deg);
         }
+        50% {
+          left: 50%;
+          top: 50%;
+          transform: rotateX(180deg) rotateY(180deg);
+        }
+        100% {
+          left: calc(100% - 100px);
+          top: calc(100% - 100px);
+          transform: rotateX(360deg) rotateY(360deg);
+        }
+      }
 
-        @keyframes spin {
-            0% {
-                transform: rotateZ(0deg);
-            }
-            100% {
-                transform: rotateZ(360deg);
-            }
+      @keyframes spin {
+        0% {
+          transform: rotateZ(0deg);
         }
+        100% {
+          transform: rotateZ(360deg);
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="coin-container">
-        <img class="image" src="/png-clipart-coins-coins.png" alt="Rotating Coin">
+      <img class="image" src="/coins_data.png" alt="Rotating Coin" />
+  
     </div>
-</body>
+  </body>
 </html>
