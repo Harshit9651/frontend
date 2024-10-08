@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            position: relative;
+        }
+
+        .button-container {
+            position: relative;
+            text-align: center;
+        }
+
+        .coin-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .coin-button:hover {
+            background-color: #ffaa00;
+        }
+
+        #credit-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #ff6666;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .coin {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: gold;
+            border-radius: 50%;
+            display: none;
+            animation: rotateCoins 2s ease-in-out forwards;
+        }
+
+        @keyframes rotateCoins {
+            0% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(calc(50vw - 40px), calc(-50vh + 40px)); 
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="button-container">
+        <button class="coin-button" onclick="generateCoins()">Get your 100 coins</button>
+    </div>
+
+    <button id="credit-button">Credit</button>
+
+    <script>
+        function generateCoins() {
+          
+            document.getElementById('credit-button').style.display = 'block';
+
+            for (let i = 0; i < 20; i++) {
+                let coin = document.createElement('div');
+                coin.classList.add('coin');
+                document.body.appendChild(coin);
+
+             
+                let startX = Math.random() * 100 - 50;
+                let startY = Math.random() * 100 - 50;
+                coin.style.left = `calc(50% + ${startX}px)`;
+                coin.style.top = `calc(50% + ${startY}px)`;
+                coin.style.display = 'block';
+                coin.style.animationDelay = `${Math.random() * 1}s`;
+
+                coin.addEventListener('animationend', function() {
+                    coin.remove();
+                });
+            }
+        }
+    </script>
+
+</body>
+</html>
