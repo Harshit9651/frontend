@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tally-like Stock Management</title>
+   <style>body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.form-section {
+    margin-bottom: 20px;
+}
+
+input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    width: 100%;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+.data-section {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+th {
+    background-color: #f9f9f9;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tally-like Stock Management System</h1>
+        
+        <div class="form-section">
+            <h2>Add Stock Item</h2>
+            <form id="stockForm">
+                <input type="text" id="itemName" placeholder="Item Name" required>
+                <input type="number" id="itemQuantity" placeholder="Quantity" required>
+                <button type="submit">Add Item</button>
+            </form>
+        </div>
+
+        <div class="form-section">
+            <h2>Record Daily Sale</h2>
+            <form id="saleForm">
+                <input type="text" id="saleItemName" placeholder="Item Name" required>
+                <input type="number" id="saleQuantity" placeholder="Quantity Sold" required>
+                <button type="submit">Record Sale</button>
+            </form>
+        </div>
+
+        <div class="data-section">
+            <h2>Stock Details</h2>
+            <table id="stockTable">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Stock items will be displayed here -->
+                </tbody>
+            </table>
+
+            <h2>Sales Records</h2>
+            <table id="salesTable">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Quantity Sold</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sales records will be displayed here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script >const stockForm = document.getElementById('stockForm');
+        const saleForm = document.getElementById('saleForm');
+        const stockTableBody = document.getElementById('stockTable').querySelector('tbody');
+        const salesTableBody = document.getElementById('salesTable').querySelector('tbody');
+        
+        let stockItems = [];
+        let salesRecords = [];
+        
+        // Add stock item
+        stockForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const itemName = document.getElementById('itemName').value;
+            const itemQuantity = parseInt(document.getElementById('itemQuantity').value);
+            
+            // Check if item already exists
+            const existingItem = stockItems.find(item => item.name === itemName);
+            if (existingItem) {
+                existingItem.quantity += itemQuantity; // Update quantity if item exists
+            } else {
+                stockItems.push({ name: itemName, quantity: itemQuantity });
+            }
+            
+            // Clear form
+            stockForm.reset();
+            
+            // Update stock table
+            updateStockTable();
+        });
+        
+        // Record daily sale
+        saleForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const saleItemName = document.getElementById('saleItemName').value;
+            const saleQuantity = parseInt(document.getElementById('saleQuantity').value);
+            
+            const stockItem = stockItems.find(item => item.name === saleItemName);
+            
+            if (stockItem && stockItem.quantity >= saleQuantity) {
+                stockItem.quantity -= saleQuantity; // Decrease quantity
+                salesRecords.push({ name: saleItemName, quantity: saleQuantity }); // Record sale
+            } else {
+                alert("Insufficient stock or item doesn't exist!");
+            }
+            
+            // Clear form
+            saleForm.reset();
+            
+            // Update tables
+            updateStockTable();
+            updateSalesTable();
+        });
+        
+        // Update stock table
+        function updateStockTable() {
+            stockTableBody.innerHTML = ''; // Clear existing rows
+            stockItems.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${item.name}</td><td>${item.quantity}</td>`;
+                stockTableBody.appendChild(row);
+            });
+        }
+        
+        // Update sales table
+        function updateSalesTable() {
+            salesTableBody.innerHTML = ''; // Clear existing rows
+            salesRecords.forEach(record => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${record.name}</td><td>${record.quantity}</td>`;
+                salesTableBody.appendChild(row);
+            });
+        }
+        </script>
+</body>
+</html>
