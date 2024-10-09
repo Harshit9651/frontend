@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flying Coins</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            overflow: hidden;
+        }
+
+        #coinButton {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .coin {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-image: url('/coins_data.png');
+            background-size: cover;
+            pointer-events: none;
+        }
+
+        @keyframes fly {
+            0% {
+                opacity: 1;
+                transform: translate(0px, 0px) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-500px) translateX(calc(50vw - 50px)) rotate(720deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button id="coinButton">Click me for coins!</button>
+
+    <script>
+        function random(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        function createCoin() {
+            const button = document.getElementById('coinButton');
+            const buttonRect = button.getBoundingClientRect();
+
+            for (let i = 0; i < 30; i++) {
+                const coin = document.createElement('div');
+                coin.classList.add('coin');
+                document.body.appendChild(coin);
+
+                coin.style.left = `${buttonRect.left + buttonRect.width / 2 - 25}px`;
+                coin.style.top = `${buttonRect.top + window.scrollY}px`;
+
+                const duration = random(2, 4);
+                const xTranslation = random(-300, 300);
+                const yTranslation = random(-600, -400);
+
+                coin.style.animation = `fly ${duration}s ease-out forwards`;
+                coin.style.transform = `translate(${xTranslation}px, ${yTranslation}px) rotate(${random(360, 720)}deg)`;
+
+                setTimeout(() => {
+                    coin.remove();
+                }, duration * 1000);
+            }
+        }
+
+        document.getElementById('coinButton').addEventListener('click', createCoin);
+    </script>
+
+</body>
+</html>
