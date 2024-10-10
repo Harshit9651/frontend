@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        .body{
-            position: relative;
-        }
+      .body {
+        position: relative;
+      }
       .container {
         position: absolute;
         height: 300px;
@@ -16,33 +16,33 @@
         animation-name: animation;
         animation-duration: 4s;
         animation-delay: 2s;
-        animation-fill-mode: forwards;
+        animation-fill-mode: forwards; 
+        animation-iteration-count: 2;
       }
 
       @keyframes animation {
-        0%{
-            left:0;
-            background-color: aquamarine;
-            top: 0;
+        0% {
+          left: 0;
+          background-color: aquamarine;
+          top: 0;
         }
-        50%{
-            left:75%;
-            background-color: blueviolet;
-            top: 0;
-            rotate: 99deg;
+        50% {
+          left: 75%;
+          background-color: blueviolet;
+          top: 0;
+          rotate: 99deg;
         }
-        75%{
-            left:75%;
-            background-color: black;
-            top:50%;
-            rotate: 180deg;
-           
+        75% {
+          left: 75%;
+          background-color: black;
+          top: 50%;
+          rotate: 180deg;
         }
-        100%{
-            top:50%;
-            background-color: brown;
-            left:0%;
-            rotate: 360deg;
+        100% {
+          top: 50%;
+          background-color: brown;
+          left: 0%;
+          rotate: 360deg;
         }
       }
     </style>
