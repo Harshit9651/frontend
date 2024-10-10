@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+      .box {
+        background-color: rgb(244, 233, 20);
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        position: absolute;
+        transition: transform 1s ease-in-out, opacity 2s ease-in-out;
+      }
+      .box.hidden {
+        opacity: 0;
+      }
+    </style>
+    <title>Animated Coins</title>
+  </head>
+  <body>
+    <div class="container" id="container"></div>
+
+    <script>
+      const container = document.getElementById("container");
+
+      for (let i = 0; i < 10; i++) {
+        const box = document.createElement("div");
+        box.classList.add("box");
+        container.appendChild(box);
+
+        box.style.top = `50%`;
+        box.style.left = `50%`;
+
+        box.addEventListener("mouseover", () => {
+          const allBoxes = document.querySelectorAll(".box");
+
+          allBoxes.forEach((el, index) => {
+            setTimeout(() => {
+              el.style.transform = `translate(500px, -500px)`;
+              el.classList.add('hidden');
+            }, index*200);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
